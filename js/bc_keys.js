@@ -14,10 +14,10 @@
    =========
 */
 
-window.addEventListener("load", findKeyWords)
-window.addEventListener("load", makeKeyStyles)
+window.addEventListener("load", findKeyWords);
+window.addEventListener("load", makeKeyStyles);
 
-function findKeyWords(){
+function findKeyWords() {
 
    // Create Aside Element for the Keyword List
    var keyWordBox = document.createElement("aside");
@@ -34,7 +34,7 @@ function findKeyWords(){
    //Locate all of the keywords in the source document
    var keyWordElems = document.querySelectorAll("article#doc dfn");
    var keyWords = new Array(keyWordElems.length);
-   for (var i = 0; i < keyWordElems; i++) {
+   for (var i = 0; i < keyWordElems.length; i++) {
       keyWords[i] = keyWordElems[i].textContent;
       var linkID = replaceWS(keyWords[i]);
       keyWordElems[i].setAttribute("id", "keyword_" + linkID);   
@@ -45,7 +45,7 @@ function findKeyWords(){
 
       for (var i = 0; i < keyWords.length; i++) {
       var keyWordListItem = document.createElement("li");
-      var keyWordLink = document.createElement("a")
+      var keyWordLink = document.createElement("a");
       keyWordLink.innerHTML = keyWords[i];
       var linkID = replaceWS(keyWords[i]);
       keyWordLink.setAttribute("href", "#" + "keyword_" + linkID);
@@ -94,16 +94,12 @@ function findKeyWords(){
       
       document.styleSheets[document.styleSheets.length-1].insertRule(
       "aside#keywords ol li a { \
-      colorL rgb(101, 101 ,101); \
+      color: rgb(101, 101, 101); \
       text-decoration: none; \
       }", 4);
       
    }
-      
-   function replaceWS(textStr) {
-      var revText = textStr.replace(/\s+/g, "_");
-      return revText;
-   }
+
    /*Replaces occurences of one or more consecutive white space
    characters with the _ character.*/
 
