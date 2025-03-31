@@ -12,20 +12,31 @@
 
    Functions
    =========
+
+   findKeyWords()
+      Locate the keywords in the article indicated by the <dfn> tag
+      and add those keywords in alphabetical order to the keyword box.
+
+   makeKeyStyles()
+      Create an embedded style sheet for the keyword box.
+
+   replaceWS(textStr)
+      Replaces the occurences of one or more consecutive white space
+      characters with the _ character.
+
 */
+
 
 window.addEventListener("load", findKeyWords);
 window.addEventListener("load", makeKeyStyles);
 
 function findKeyWords() {
-
    // Create Aside Element for the Keyword List
    var keyWordBox = document.createElement("aside");
    keyWordBox.setAttribute("id", "keywords");    
    var keyWordTitle = document.createElement("h1");
    keyWordTitle.innerHTML = "Keyword List";
    keyWordBox.appendChild(keyWordTitle);
-
 
    //Place the keywords in an ordered list
    var keyWordList = document.createElement("ol");
@@ -96,12 +107,10 @@ function findKeyWords() {
       "aside#keywords ol li a { \
       color: rgb(101, 101, 101); \
       text-decoration: none; \
-      }", 4);
-      
+      }", 4);   
    }
 
-   /*Replaces occurences of one or more consecutive white space
-   characters with the _ character.*/
+   
 
    /* Supplied Functions */
 
